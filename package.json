@@ -39,6 +39,7 @@
     "axios": "^1.5.1",
     "include-media": "^2.0.0",
     "moment": "^2.29.4",
+    "moment-timezone": "^0.5.43",
     "sass": "^1.69.4"
   }
 }

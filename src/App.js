@@ -14,14 +14,6 @@ function App() {
   const [city, setCity] = React.useState("");
   const googleAPI = `https://maps.googleapis.com/maps/api/geocode/json?address=${searchField}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`;
 
-  //   const timestamp =   1698404400; // example timestamp
-  //   const date = new Date(timestamp * 1000);
-  // console.log(date)
-  // console.log(date.getDate())
-  // console.log(date.getUTCDate())
-  // console.log(date.getUTCMonth() + 1)
-  // console.log(date.getUTCFullYear())
-
   const handleChange = (event) => {
     setSearchFieled(event.target.value);
   };
@@ -31,7 +23,7 @@ function App() {
       setCity(response.data.results[0].address_components[0].long_name);
       let latitude = response.data.results[0].geometry.location.lat;
       let longitude = response.data.results[0].geometry.location.lng;
-      let unit = "imperial";
+      let unit = "metric";
       let openWeatherUrl = await axios.get(
         `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&units=${unit}&exclude=hourly,minutely&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`
       );
@@ -59,8 +51,14 @@ function App() {
             <LocationTimeDate
               location={city}
               timestamp={weatherReport.current.dt}
+              timezone={weatherReport.timezone}
             />
-            <WeatherDetails />
+            <WeatherDetails
+              temp={weatherReport.current.temp}
+              feelsLike={weatherReport.current.feels_like}
+              sunrise = {weatherReport.current.sunrise}
+              sunset = {weatherReport.current.sunset}
+            />
           </div>
           <div className="weather__container-row">
             <DaysForecast />

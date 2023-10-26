@@ -5,4 +5,71 @@
     border-radius: 3rem;
     background: #D9D9D9;
     filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.50));
+
+    display: flex;
+
+    &-main{
+       flex:1;
+       border: 1px solid red;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       gap: 3rem;
+
+       h2{
+        font-size: 8rem;
+        font-style: normal;
+        font-weight: 700;
+
+       }
+       p{
+        font-size: 2rem;
+        font-weight: 600;
+       }
+    }
+    &-icon{
+    flex:1 ;
+    border: 1px solid black;
+    }
+    &-extra{
+    flex:1 ;
+    border: 1px solid red;
+    }
 }
+
+.sunrise-sunset{
+    display: flex;
+    flex-direction: column;
+    background-color: yellow;
+    gap:1rem;
+}
+
+.sun{
+    display: flex;
+    gap:1rem;
+    border: 1px solid red;
+
+    div{
+        display: flex;
+        flex-direction: column;
+        gap:1rem;
+    }
+}
+
+.sun_logo{
+    width: 5rem;
+    height: 5rem;
+    position: relative;
+    
+  
+     &-image{
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        object-fit: cover;    
+     }
+  }
+
