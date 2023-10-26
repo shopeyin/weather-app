@@ -1,0 +1,66 @@
+*,
+*:after,
+*:before{
+  box-sizing: border-box;
+}
+
+
+
+$breakpoints: (
+  'phone': 768px,
+  'tablet': 1024px,
+  'desktop': 1920px,
+) !default;
+
+
+@import '../node_modules//include-media/dist/include-media';
+
+html {
+ 
+   font-size: calc(100vw / 1920 * 10);
+
+
+   @include media('<=phone') {
+    font-size: calc(100vw / 750 * 10);
+    
+  }
+ 
+}
+
+body{
+
+}
+
+.container{
+  max-width: 1512px;
+  min-height: 100dvh;
+  border: 1px solid black;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  //align-items: center;
+  padding-top: 5rem;
+ 
+
+}
+
+.weather__container{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid green;
+  flex-grow: 1;
+  margin: 5rem;
+  gap:5rem;
+
+  &-row{
+    display: flex;
+    flex-grow: 1;
+    gap:6rem;
+
+    @include media('<=phone') {
+      flex-direction: column;
+  
+    }
+  }
+}
