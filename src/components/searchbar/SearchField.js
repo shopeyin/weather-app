@@ -1,6 +1,12 @@
 import React from "react";
 import "./search.style.scss";
-function SearchField({ placeholder, handleChange, name, fetchData }) {
+function SearchField({
+  placeholder,
+  handleChange,
+  name,
+  fetchData,
+  disabledButton,
+}) {
   return (
     <div className="search">
       <div className="search__input-box">
@@ -12,7 +18,11 @@ function SearchField({ placeholder, handleChange, name, fetchData }) {
           onChange={handleChange}
         />
       </div>
-      <button onClick={fetchData} className="search__button">
+      <button
+        onClick={fetchData}
+        className="search__button"
+        disabled={disabledButton}
+      >
         Search
       </button>
     </div>

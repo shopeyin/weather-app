@@ -5,7 +5,7 @@ import moment from 'moment-timezone';
 function LocationTimeDate({location, timestamp, timezone}) {
  
   let time = moment.unix(timestamp).tz(timezone).format('HH:mm')
-  let date = moment.unix(timestamp).tz(timezone).format('MMMM Do YYYY')
+  let date = moment.unix(timestamp).tz(timezone).format('dddd MMMM Do YYYY')
  
   return (
     <div className='locationTimeDate'>
