@@ -3,12 +3,12 @@ import moment from "moment-timezone";
 import "./daysforecast.style.scss";
 import Table from "react-bootstrap/Table";
 
-function DaysForecast({ weatherForecast, timezone }) {
+function DaysForecast({ weatherForecast, timezone, unitToggle }) {
   const nextFiveDailyweather = weatherForecast.slice(1, 6);
- 
+
   return (
     <div className="daysForecast">
-      <h2>5 Days Forecast</h2>
+      <h2> Next 5 Days Forecast</h2>
       <Table>
         <thead>
           <tr>
@@ -23,7 +23,7 @@ function DaysForecast({ weatherForecast, timezone }) {
         <tbody>
           {nextFiveDailyweather.map((daily) => {
             return (
-              <tr key={daily.dt}>
+              <tr key={daily.dt} className="forecastrow">
                 <td>
                   <figure className="weather_forecast-icon">
                     <img
@@ -34,22 +34,22 @@ function DaysForecast({ weatherForecast, timezone }) {
                 </td>
                 <td>
                   {" "}
-                  {Math.floor(daily.temp.morn)} <span>&#176;C</span>
+                  {Math.floor(daily.temp.morn)} <span>&#176;{unitToggle ? "C" : "F"}</span>
                 </td>
                 <td>
                   {" "}
-                  {Math.floor(daily.temp.day)} <span>&#176;C</span>
+                  {Math.floor(daily.temp.day)} <span>&#176;{unitToggle ? "C" : "F"}</span>
                 </td>
                 <td>
                   {" "}
-                  {Math.floor(daily.temp.eve)} <span>&#176;C</span>
+                  {Math.floor(daily.temp.eve)} <span>&#176;{unitToggle ? "C" : "F"}</span>
                 </td>
                 <td>
                   {" "}
-                  {Math.floor(daily.temp.night)} <span>&#176;C</span>
+                  {Math.floor(daily.temp.night)} <span>&#176;{unitToggle ? "C" : "F"}</span>
                 </td>
                 <td>
-                  {moment.unix(daily.dt).tz(timezone).format("dddd MMMM Do YYYY")}
+                  {moment.unix(daily.dt).tz(timezone).format("MMM Do")}
                 </td>
               </tr>
             );

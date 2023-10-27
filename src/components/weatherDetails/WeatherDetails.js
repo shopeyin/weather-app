@@ -16,6 +16,7 @@ function WeatherDetails({
   timezone,
   weather,
   currentWeather,
+  unitToggle,
 }) {
   let sunriseTime = moment.unix(sunrise).tz(timezone).format("HH:mm");
   let sunsetTime = moment.unix(sunset).tz(timezone).format("HH:mm");
@@ -26,7 +27,7 @@ function WeatherDetails({
         <div className="temp">
           <h2>
             {Math.floor(temp)}
-            <span>&#176;C</span>
+            <span>&#176;{unitToggle ? "C" : "F"}</span>
           </h2>
           <p>
             Feels like:{Math.floor(feelsLike)}
@@ -67,33 +68,33 @@ function WeatherDetails({
         <div className="weather__details-row">
           <div className="weather-image">
             <figure>
-              <img src={humidityImg} alt="humidity" className="" />
+              <img src={humidityImg} alt="humidity" />
             </figure>
-            <p>{currentWeather.humidity}</p>
+            <h3>{currentWeather.humidity}</h3>
             <p>Humidity</p>
           </div>
           <div className="weather-image">
             <figure>
-              <img src={windspeedImg} alt="windspeed" className="" />
+              <img src={windspeedImg} alt="windspeed" />
             </figure>
-            <p>{currentWeather.wind_speed}</p>
+            <h3>{currentWeather.wind_speed}</h3>
             <p>Wind Speed</p>
           </div>
         </div>
         <div className="weather__details-row">
           <div className="weather-image">
             <figure>
-              <img src={pressureImg} alt="pressure" className="" />
+              <img src={pressureImg} alt="pressure" />
             </figure>
 
-            <p>{currentWeather.pressure}</p>
+            <h3>{currentWeather.pressure}</h3>
             <p>Pressure</p>
           </div>
           <div className="weather-image">
             <figure>
               <img src={uvImg} alt="uv" className="" />
             </figure>
-            <p>{currentWeather.uvi}</p>
+            <h3>{currentWeather.uvi}</h3>
             <p>UV</p>
           </div>
         </div>
