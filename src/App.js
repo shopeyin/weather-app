@@ -10,9 +10,10 @@ import DaysForecast from "./components/daysForecast/DaysForecast";
 import ErrorComponent from "./components/error/ErrorComponent";
 import "./App.scss";
 import SpinnerVariant from "./components/spinner/Spinner";
+import HomePage from "./components/homepage/HomePage";
 
 function App() {
-  console.log("componenet rendering");
+
   const [searchField, setSearchFieled] = React.useState("");
   const [weatherReport, setWeatherReport] = React.useState();
   const [loading, setLoading] = React.useState(true);
@@ -75,12 +76,10 @@ function App() {
   const isInputEmpty = searchField.trim() === "";
 
   React.useEffect(() => {
-    console.log("useEffect called");
     fetchData();
   }, [unitToggle]);
 
-  console.log(loadingSpinner, "spinner");
-  console.log(error, "error");
+ 
   return (
     <div className="container">
       <Toaster />
@@ -96,9 +95,7 @@ function App() {
       />
 
       {loading ? (
-        <>
-          <h1>Loading....</h1>
-        </>
+        <HomePage />
       ) : (
         <>
           {loadingSpinner ? (
@@ -139,92 +136,8 @@ function App() {
           )}
         </>
       )}
-
-      {/* <>
-        {loadingSpinner ? (
-          <SpinnerVariant />
-        ) : (
-          <>
-            {error ? (
-              <ErrorComponent />
-            ) : (
-              <div className="weather__container">
-                <div className="weather__container-row">
-                  <LocationTimeDate
-                    location={city}
-                    timestamp={weatherReport.current.dt}
-                    timezone={weatherReport.timezone}
-                  />
-                  <WeatherDetails
-                    temp={weatherReport.current.temp}
-                    feelsLike={weatherReport.current.feels_like}
-                    sunrise={weatherReport.current.sunrise}
-                    sunset={weatherReport.current.sunset}
-                    timezone={weatherReport.timezone}
-                    weather={weatherReport.current.weather[0]}
-                    currentWeather={weatherReport.current}
-                    unitToggle={unitToggle}
-                  />
-                </div>
-                <div className="weather__container-row">
-                  <DaysForecast
-                    weatherForecast={weatherReport.daily}
-                    timezone={weatherReport.timezone}
-                    unitToggle={unitToggle}
-                  />
-                </div>
-              </div>
-            )}
-          </>
-        )}
-      </> */}
     </div>
   );
 }
 
 export default App;
-
-//  {loading ? (
-//         <>
-//           <h1>Loading....</h1>
-//         </>
-//       ) : (
-//         <>
-//           {loadingSpinner ? (
-//             <SpinnerVariant />
-//           ) : (
-//             <>
-//               {error ? (
-//                 <ErrorComponent />
-//               ) : (
-//                 <div className="weather__container">
-//                   <div className="weather__container-row">
-//                     <LocationTimeDate
-//                       location={city}
-//                       timestamp={weatherReport.current.dt}
-//                       timezone={weatherReport.timezone}
-//                     />
-//                     <WeatherDetails
-//                       temp={weatherReport.current.temp}
-//                       feelsLike={weatherReport.current.feels_like}
-//                       sunrise={weatherReport.current.sunrise}
-//                       sunset={weatherReport.current.sunset}
-//                       timezone={weatherReport.timezone}
-//                       weather={weatherReport.current.weather[0]}
-//                       currentWeather={weatherReport.current}
-//                       unitToggle={unitToggle}
-//                     />
-//                   </div>
-//                   <div className="weather__container-row">
-//                     <DaysForecast
-//                       weatherForecast={weatherReport.daily}
-//                       timezone={weatherReport.timezone}
-//                       unitToggle={unitToggle}
-//                     />
-//                   </div>
-//                 </div>
-//               )}
-//             </>
-//           )}
-//         </>
-//       )}

@@ -17,7 +17,7 @@
 .switch{
  
  
- // width: 100%;
+
   
  @include media('<=phone') {
   padding: 0rem 2rem;
@@ -53,11 +53,8 @@
   flex-direction: row;
   align-items: center;
   padding:  2rem;
-  // //gap: 16rem;
-
+  border: 1px solid black;
   width: 75.7rem;
-  // height: 4.6rem;
-  // background: white;
   border-radius: 3rem;
 
   @include media('<=phone') {
