@@ -1,4 +1,4 @@
-.homepage{
+.custom-container{
     padding: 1rem;
     flex-grow: 1;
     background-color: red;
@@ -14,8 +14,9 @@
     font-weight: 700;
     font-size: 5rem;
     text-align: center;
-    background-image: url(../images/hero.jpg);
+    // background-image: url(../images/hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
         background-position: center;
 }
+

@@ -1,10 +1,10 @@
 import React from "react";
-import sunriseImg from "../images/sunrise.png";
-import sunsetImg from "../images/sunset.png";
-import humidityImg from "../images/humidity.png";
-import windspeedImg from "../images/wind.png";
-import pressureImg from "../images/pressure.png";
-import uvImg from "../images/uv.png";
+import sunriseImg from "../../images/sunrise.png";
+import sunsetImg from "../../images/sunset.png";
+import humidityImg from "../../images/humidity.png";
+import windspeedImg from "../../images/wind.png";
+import pressureImg from "../../images/pressure.png";
+import uvImg from "../../images/uv.png";
 import moment from "moment-timezone";
 import "./weatherdetails.scss";
 function WeatherDetails({

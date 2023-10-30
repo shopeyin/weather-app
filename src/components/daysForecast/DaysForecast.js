@@ -34,23 +34,25 @@ function DaysForecast({ weatherForecast, timezone, unitToggle }) {
                 </td>
                 <td>
                   {" "}
-                  {Math.floor(daily.temp.morn)} <span>&#176;{unitToggle ? "C" : "F"}</span>
+                  {Math.floor(daily.temp.morn)}{" "}
+                  <span>&#176;{unitToggle ? "C" : "F"}</span>
                 </td>
                 <td>
                   {" "}
-                  {Math.floor(daily.temp.day)} <span>&#176;{unitToggle ? "C" : "F"}</span>
+                  {Math.floor(daily.temp.day)}{" "}
+                  <span>&#176;{unitToggle ? "C" : "F"}</span>
                 </td>
                 <td>
                   {" "}
-                  {Math.floor(daily.temp.eve)} <span>&#176;{unitToggle ? "C" : "F"}</span>
+                  {Math.floor(daily.temp.eve)}{" "}
+                  <span>&#176;{unitToggle ? "C" : "F"}</span>
                 </td>
                 <td>
                   {" "}
-                  {Math.floor(daily.temp.night)} <span>&#176;{unitToggle ? "C" : "F"}</span>
+                  {Math.floor(daily.temp.night)}{" "}
+                  <span>&#176;{unitToggle ? "C" : "F"}</span>
                 </td>
-                <td>
-                  {moment.unix(daily.dt).tz(timezone).format("MMM Do")}
-                </td>
+                <td>{moment.unix(daily.dt).tz(timezone).format("MMM Do")}</td>
               </tr>
             );
           })}
