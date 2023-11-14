@@ -7,6 +7,7 @@ import pressureImg from "../../images/pressure.png";
 import uvImg from "../../images/uv.png";
 import moment from "moment-timezone";
 import "./weatherdetails.scss";
+
 function WeatherDetails({
   temp,
   feelsLike,
@@ -16,6 +17,7 @@ function WeatherDetails({
   weather,
   currentWeather,
   unitToggle,
+  showUnit,
 }) {
   let sunriseTime = moment.unix(sunrise).tz(timezone).format("HH:mm");
   let sunsetTime = moment.unix(sunset).tz(timezone).format("HH:mm");
@@ -25,12 +27,25 @@ function WeatherDetails({
       <div className="weather__details-main">
         <div className="temp">
           <h2>
-            {Math.floor(temp)}
-            <span>&#176;{unitToggle ? "C" : "F"}</span>
+            {showUnit ? (
+              <span>
+                {" "}
+                {Math.floor(temp)}&#176;{unitToggle ? "C" : "F"}
+              </span>
+            ) : (
+              ""
+            )}
           </h2>
           <p>
             Feels like:{Math.floor(feelsLike)}
-            <span>&#176;C</span>
+            {showUnit ? (
+              <span>
+                {" "}
+                {Math.floor(temp)}&#176;{unitToggle ? "C" : "F"}
+              </span>
+            ) : (
+              ""
+            )}
           </p>
         </div>
         <div className="sunrise-sunset">

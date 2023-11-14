@@ -9,6 +9,7 @@ function SearchField({
   disabledButton,
   handleSwitch,
   unitToggle,
+  handleButtonClick,
 }) {
   return (
     <div className="search">
@@ -38,7 +39,10 @@ function SearchField({
         </div>
 
         <button
-          onClick={fetchData}
+          onClick={() => {
+            handleButtonClick();
+            fetchData();
+          }}
           className="search__button"
           disabled={disabledButton}
         >
